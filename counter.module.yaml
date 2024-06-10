@@ -1,0 +1,35 @@
+schema: apigear.module/1.0
+name: counter
+version: "1.0.0"
+
+imports:
+  - name: custom_types
+  - name: extern_types
+    # version: 1.0.0
+
+interfaces:
+  - name: Counter
+    properties:
+      - name: vector
+        type: Vector3D
+        import: custom_types
+      - name: extern_vector
+        type: MyVector3D
+        import: extern_types
+    operations:
+      - name: increment
+        params:
+          - name: vec
+            type: MyVector3D
+            import: extern_types
+        return: 
+            type: MyVector3D
+            import: extern_types
+      - name: decrement
+        params:
+          - name: vec
+            type: Vector3D
+            import: custom_types
+        return: 
+            type: Vector3D
+            import: custom_types
