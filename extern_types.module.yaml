@@ -10,13 +10,14 @@ externs:
       ue.namespace: "UE::Math"
       ue.module: "Engine"
       ### default initialization seems to be random and not zero -> test for default comparison fails
-      # cpp.type: Vector3f
-      # cpp.include: "Eigen/StdVector"
-      # cpp.namespace: "Eigen"
-      # cpp.package: "Eigen3"
-      # cpp.component: "Eigen"
-      # cpp.conanpackage: "eigen"
-      # cpp.conanversion: "3.4.0"
+      cpp.type: Vector3f
+      cpp.include: "Eigen/StdVector"
+      cpp.namespace: "Eigen"
+      cpp.package: "Eigen3"
+      cpp.default: "Eigen::Vector3f(0,0,0)"
+      cpp.component: "Eigen"
+      cpp.conanpackage: "eigen"
+      cpp.conanversion: "3.4.0"
       ### error: no match for ‘operator!=’ for Vec3f and no system package available
       # cpp.type: Vec3f
       # cpp.include: "gmtl/Vec.h"
@@ -32,13 +33,13 @@ externs:
       # cpp.package: "Imath"
       # cpp.conanpackage: "imath"
       # cpp.conanversion: "3.1.11"
-      ## Qt test
-      cpp.type: QVector3D
-      cpp.include: "QVector3D"
-      cpp.package: "Qt6"
-      cpp.component: "Gui"
-      cpp.conanpackage: "qt"
-      cpp.conanversion: "6.7.0"
+      ## Qt test - working, but needs c++17
+      # cpp.type: QVector3D
+      # cpp.include: "QVector3D"
+      # cpp.package: "Qt6"
+      # cpp.component: "Gui"
+      # cpp.conanpackage: "qt"
+      # cpp.conanversion: "6.7.0"
       rs.type: "Vec3"
       rs.crate: "na"
       rs.version: "0.32.2"
