@@ -10,7 +10,7 @@ externs:
       ue.namespace: "UE::Math"
       ue.module: "Engine"
       ### default initialization seems to be random and not zero -> test for default comparison fails
-      cpp.type: Vector3f
+      cpp.name: Vector3f
       cpp.include: "Eigen/StdVector"
       cpp.namespace: "Eigen"
       cpp.package: "Eigen3"
@@ -19,7 +19,7 @@ externs:
       cpp.conanpackage: "eigen"
       cpp.conanversion: "3.4.0"
       ### error: no match for ‘operator!=’ for Vec3f and no system package available
-      # cpp.type: Vec3f
+      # cpp.name: Vec3f
       # cpp.include: "gmtl/Vec.h"
       # cpp.namespace: "gmtl"
       # cpp.package: "gmtl"
@@ -27,14 +27,14 @@ externs:
       # cpp.conanpackage: "psyinf-gmtl"
       # cpp.conanversion: "0.7.1"
       ## working
-      # cpp.type: V3f
+      # cpp.name: V3f
       # cpp.include: "Imath/ImathVec.h"
       # cpp.namespace: "Imath"
       # cpp.package: "Imath"
       # cpp.conanpackage: "imath"
       # cpp.conanversion: "3.1.11"
       ## Qt test - working, but needs c++17
-      # cpp.type: QVector3D
+      # cpp.name: QVector3D
       # cpp.include: "QVector3D"
       # cpp.package: "Qt6"
       # cpp.component: "Gui"
