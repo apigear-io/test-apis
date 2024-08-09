@@ -82,7 +82,7 @@ interfaces:
           - { name: paramFloat, type: float }
       - name: sigFloat32
         params:
-          - { name: paramFloa32, type: float32 }
+          - { name: paramFloat32, type: float32 }
       - name: sigFloat64
         params:
           - { name: paramFloat64, type: float64 }
