@@ -16,6 +16,31 @@ interfaces:
       - name: extern_vector
         type: MyVector3D
         import: extern_types
+      - name: vectorArray
+        type: Vector3D
+        import: custom_types
+        array: true
+      - name: extern_vectorArray
+        type: MyVector3D
+        import: extern_types
+        array: true
+    signals:
+      - name: valueChanged
+        params:
+        - name: vector
+          type: Vector3D
+          import: custom_types
+        - name: extern_vector
+          type: MyVector3D
+          import: extern_types
+        - name: vectorArray
+          type: Vector3D
+          import: custom_types
+          array: true
+        - name: extern_vectorArray
+          type: MyVector3D
+          import: extern_types
+          array: true
     operations:
       - name: increment
         params:
@@ -25,6 +50,16 @@ interfaces:
         return: 
             type: MyVector3D
             import: extern_types
+      - name: incrementArray
+        params:
+          - name: vec
+            type: MyVector3D
+            import: extern_types
+            array: true
+        return: 
+            type: MyVector3D
+            import: extern_types
+            array: true
       - name: decrement
         params:
           - name: vec
@@ -33,3 +68,13 @@ interfaces:
         return: 
             type: Vector3D
             import: custom_types
+      - name: decrementArray
+        params:
+          - name: vec
+            type: Vector3D
+            import: custom_types
+            array: true
+        return: 
+            type: Vector3D
+            import: custom_types
+            array: true
