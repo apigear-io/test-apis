@@ -192,3 +192,4 @@ interfaces:
           - { name: paramBool, type: bool }
         return:
           type: bool
+  - name: EmptyInterface
