@@ -9,7 +9,7 @@ externs:
       ue.include: "Runtime/Core/Public/Math/Vector.h"
       ue.namespace: "" # use "UE::Math" for FVector3f in UE5
       ue.module: "Engine"
-      ue.default: "FVector(0.f,0.f,0.f)"
+      ue.default: "FVector(0.f, 0.f, 0.f)"
       ### default initialization seems to be random and not zero -> test for default comparison fails
       cpp.name: Vector3f
       cpp.include: "Eigen/StdVector"
