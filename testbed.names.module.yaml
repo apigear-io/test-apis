@@ -8,6 +8,7 @@ interfaces:
       - { name: Switch, type: bool }
       - { name: SOME_PROPERTY, type: int }
       - { name: Some_Poperty2, type: int }
+      - { name: enum_property, type: Enum_With_Under_scores }
     operations:
       - name: SOME_FUNCTION
         params:
@@ -24,3 +25,9 @@ interfaces:
       - name: Some_Signal2
         params:
           - { name: Some_Param, type: bool }
+enums:
+  - name: Enum_With_Under_scores
+    members:
+      - { name: First_Value, value: 0 }
+      - { name: second_value, value: 1 }
+      - { name: third_Value, value: 2 }
