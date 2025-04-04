@@ -49,6 +49,7 @@ interfaces:
       - { name: propInt, type: StructInt, array: true }
       - { name: propFloat, type: StructFloat, array: true }
       - { name: propString, type: StructString, array: true }
+      - { name: propEnum, type: Enum0, array: true }
     operations:
       - name: funcBool
         params:
@@ -74,6 +75,12 @@ interfaces:
         return:
           type: StructString
           array: true
+      - name: funcEnum
+        params:
+          - { name: paramEnum, type: Enum0, array: true }
+        return:
+          type: Enum0
+          array: true
     signals:
       - name: sigBool
         params:
@@ -87,6 +94,60 @@ interfaces:
       - name: sigString
         params:
           - { name: paramString, type: StructString, array: true }
+      - name: sigEnum
+        params:
+          - { name: paramEnum, type: Enum0, array: true }
+  - name: StructArray2Interface
+    properties:
+      - { name: propBool, type: StructBoolWithArray }
+      - { name: propInt, type: StructIntWithArray }
+      - { name: propFloat, type: StructFloatWithArray }
+      - { name: propString, type: StructStringWithArray }
+      - { name: propEnum, type: StructEnumWithArray }
+    operations:
+      - name: funcBool
+        params:
+          - { name: paramBool, type: StructBoolWithArray }
+        return:
+          type: StructBool
+          array: true
+      - name: funcInt
+        params:
+          - { name: paramInt, type: StructIntWithArray }
+        return:
+          type: StructInt
+          array: true
+      - name: funcFloat
+        params:
+          - { name: paramFloat, type: StructFloatWithArray }
+        return:
+          type: StructFloat
+          array: true
+      - name: funcString
+        params:
+          - { name: paramString, type: StructStringWithArray }
+        return:
+          type: StructString
+          array: true
+      - name: funcEnum
+        params:
+          - { name: paramEnum, type: StructEnumWithArray }
+        return:
+          type: Enum0
+          array: true
+    signals:
+      - name: sigBool
+        params:
+          - { name: paramBool, type: StructBoolWithArray }
+      - name: sigInt
+        params:
+          - { name: paramInt, type: StructIntWithArray }
+      - name: sigFloat
+        params:
+          - { name: paramFloat, type: StructFloatWithArray }
+      - name: sigString
+        params:
+          - { name: paramString, type: StructStringWithArray }
 structs:
   - name: StructBool
     fields:
@@ -100,3 +161,33 @@ structs:
   - name: StructString
     fields:
       - { name: fieldString, type: string }
+  - name: StructStruct
+    fields:
+      - { name: fieldString, type: StructString }
+  - name: StructEnum
+    fields:
+      - { name: fieldEnum, type: Enum0 }
+  - name: StructBoolWithArray
+    fields:
+      - { name: fieldBool, type: bool, array: true }
+  - name: StructIntWithArray
+    fields:
+      - { name: fieldInt, type: int, array: true }
+  - name: StructFloatWithArray
+    fields:
+      - { name: fieldFloat, type: float, array: true }
+  - name: StructStringWithArray
+    fields:
+      - { name: fieldString, type: string, array: true }
+  - name: StructStructWithArray
+    fields:
+      - { name: fieldStruct, type: StructStringWithArray, array: true }
+  - name: StructEnumWithArray
+    fields:
+      - { name: fieldEnum, type: Enum0, array: true }
+enums:
+  - name: Enum0
+    members:
+      - { name: value0, value: 0 }
+      - { name: value1, value: 1 }
+      - { name: value2, value: 2 }
