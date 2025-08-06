@@ -1,6 +1,6 @@
 schema: apigear.module/1.0
-name: tb.ref_interfaces_import
+name: tb.ifaceimport
 version: "1.0.0"
 
 interfaces:
-  - name: Counter
+  - name: EmptyIf

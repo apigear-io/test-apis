@@ -1,0 +1,57 @@
+schema: apigear.module/1.0
+name: tb.ref_ifaces
+version: "1.0.0"
+
+imports:
+  - name: tb.ifaceimport
+    # version: 1.0.0
+
+interfaces:
+  - name: SimpleLocalIf
+    properties:
+      - name: intProperty
+        type: int
+    operations:
+      - name: intMethod
+        params:
+          - name: param
+            type: int
+        return: 
+            type: int
+    signals:
+      - name: intSignal
+        params:
+          - name: param
+            type: int
+  - name: ParentIf
+    properties:
+      - name: localIf
+        type: SimpleLocalIf
+      - name: importedIf
+        type: EmptyIf
+        import: tb.ifaceimport
+    operations:
+      - name: localIfMethod
+        params:
+          - name: param
+            type: SimpleLocalIf
+        return: 
+            type: SimpleLocalIf
+      - name: importedIfMethod
+        params:
+          - name: param
+            type: EmptyIf
+            import: tb.ifaceimport
+        return: 
+            type: EmptyIf
+            import: tb.ifaceimport
+    signals:
+      - name: localIfSignal
+        params:
+          - name: param
+            type: SimpleLocalIf
+      - name: importedIfSignal
+        params:
+          - name: param
+            type: EmptyIf
+            import: tb.ifaceimport
