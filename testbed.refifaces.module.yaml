@@ -91,3 +91,41 @@ interfaces:
             type: EmptyIf
             array: true
             import: tb.ifaceimport
+  - name: ExtendedSimpleLocalIf
+    extends:
+      name: SimpleLocalIf
+    properties:
+      - name: intProperty
+        type: int
+    operations:
+      - name: intMethod
+        params:
+          - name: param
+            type: int
+        return: 
+            type: int
+    signals:
+      - name: intSignal
+        params:
+          - name: param
+            type: int
+  - name: ExtendedEmptyIf
+    extends:
+      name: EmptyIf
+      import: tb.ifaceimport
+    properties:
+      - name: intProperty
+        type: int
+    operations:
+      - name: intMethod
+        params:
+          - name: param
+            type: int
+        return: 
+            type: int
+    signals:
+      - name: intSignal
+        params:
+          - name: param
+            type: int
+
