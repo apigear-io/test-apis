@@ -27,8 +27,15 @@ interfaces:
     properties:
       - name: localIf
         type: SimpleLocalIf
+      - name: localIfList
+        type: SimpleLocalIf
+        array: true
       - name: importedIf
         type: EmptyIf
+        import: tb.ifaceimport
+      - name: importedIfList
+        type: EmptyIf
+        array: true
         import: tb.ifaceimport
     operations:
       - name: localIfMethod
@@ -37,6 +44,14 @@ interfaces:
             type: SimpleLocalIf
         return: 
             type: SimpleLocalIf
+      - name: localIfMethodList
+        params:
+          - name: param
+            type: SimpleLocalIf
+            array: true
+        return: 
+            type: SimpleLocalIf
+            array: true
       - name: importedIfMethod
         params:
           - name: param
@@ -45,13 +60,34 @@ interfaces:
         return: 
             type: EmptyIf
             import: tb.ifaceimport
+      - name: importedIfMethodList
+        params:
+          - name: param
+            type: EmptyIf
+            array: true
+            import: tb.ifaceimport
+        return: 
+            type: EmptyIf
+            array: true
+            import: tb.ifaceimport
     signals:
       - name: localIfSignal
         params:
           - name: param
             type: SimpleLocalIf
+      - name: localIfSignalList
+        params:
+          - name: param
+            type: SimpleLocalIf
+            array: true
       - name: importedIfSignal
         params:
           - name: param
             type: EmptyIf
+            import: tb.ifaceimport
+      - name: importedIfSignalList
+        params:
+          - name: param
+            type: EmptyIf
+            array: true
             import: tb.ifaceimport
