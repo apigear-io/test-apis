@@ -51,4 +51,9 @@ externs:
       qt.library: Qt6::Gui
       py.import: vector3d.vector
       py.name: Vector
+      java.download_package: org.apache.commons:commons-math3
+      java.version: 3.6.1
+      java.package: org.apache.commons.math3.geometry.euclidean.threed
+      java.name: Vector3D
+      java.default: new org.apache.commons.math3.geometry.euclidean.threed.Vector3D(0.0, 0.0, 0.0)
 
