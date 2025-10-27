@@ -59,6 +59,13 @@ interfaces:
     properties:
       - { name: prop1, type: NestedStruct1 }
     operations:
+      - name: funcNoReturnValue
+        params:
+          - name: param1
+            type: NestedStruct1
+      - name: funcNoParams
+        return:
+            type: NestedStruct1
       - name: func1
         params:
           - { name: param1, type: NestedStruct1 }
