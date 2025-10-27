@@ -32,6 +32,9 @@ interfaces:
         params:
           - name: paramBool
             type: bool
+      - name: funcNoParams
+        return:
+            type: bool
       - name: funcBool
         params:
           - { name: paramBool, type: bool }
