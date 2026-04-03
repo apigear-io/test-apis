@@ -1,0 +1,75 @@
+schema: apigear.module/1.0
+name: tb.struct.array
+version: "1.0.0"
+
+# Test struct fields that are arrays of various types.
+# Covers combinations missing from other test modules:
+# - struct field: array of structs (triggers cppDefault vs cppTestValue bug)
+# - struct field: array of enums
+# - struct field: array of primitives
+# - struct containing a mix of all the above plus non-array fields
+# - interface using these structs in properties, operations, and signals
+
+enums:
+  - name: TestEnum
+    members:
+      - { name: value1, value: 1 }
+      - { name: value2, value: 2 }
+
+structs:
+  # A simple struct used as element type for array-of-struct fields
+  - name: Point
+    fields:
+      - { name: x, type: float }
+      - { name: y, type: float }
+
+  # Struct with a field that is an array of structs (THE BUG)
+  - name: StructWithArrayOfStructs
+    fields:
+      - { name: points, type: Point, array: true }
+
+  # Struct with a field that is an array of enums
+  - name: StructWithArrayOfEnums
+    fields:
+      - { name: tags, type: TestEnum, array: true }
+
+  # Struct with a field that is an array of primitives
+  - name: StructWithArrayOfInts
+    fields:
+      - { name: values, type: int, array: true }
+
+  # Mixed: non-array fields alongside array-of-struct fields
+  - name: MixedStruct
+    fields:
+      - { name: id, type: int }
+      - { name: name, type: string }
+      - { name: origin, type: Point }
+      - { name: points, type: Point, array: true }
+      - { name: flags, type: TestEnum, array: true }
+      - { name: scores, type: int, array: true }
+
+interfaces:
+  - name: StructArrayFieldInterface
+    properties:
+      - { name: propStructArray, type: StructWithArrayOfStructs }
+      - { name: propEnumArray, type: StructWithArrayOfEnums }
+      - { name: propIntArray, type: StructWithArrayOfInts }
+      - { name: propMixed, type: MixedStruct }
+    operations:
+      - name: funcMixed
+        params:
+          - { name: paramMixed, type: MixedStruct }
+        return:
+          type: MixedStruct
+      - name: funcStructArray
+        params:
+          - { name: paramPoints, type: StructWithArrayOfStructs }
+        return:
+          type: StructWithArrayOfStructs
+    signals:
+      - name: sigMixed
+        params:
+          - { name: paramMixed, type: MixedStruct }
+      - name: sigStructArray
+        params:
+          - { name: paramPoints, type: StructWithArrayOfStructs }
